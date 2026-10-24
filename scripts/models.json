@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "description": "黑苹果机型单一数据源：三轴（核显代次 + TDP 档位 + macOS 资格）+ T2 标记。board-id 依 Apple 官方规格页 + Mr. Macintosh BoardID 列表核对，2026-10-23。",
+    "verified": "2026-10-23",
+    "fields": {
+      "igpu_gen": "Gen7/Gen7.5/Gen8/Gen9/Gen9.5/Gen11/Gen12（Gen11=Ice Lake，Gen12=Xe-LP 无原生驱动）",
+      "tdp": "机型平台典型 TDP（W）；桌面机型按 65W 级散热记，轴二在桌面意为 iGPU-only/+dGPU 取舍",
+      "tahoe": "macOS 26 Tahoe 资格（最后一个支持 Intel Mac 的版本）",
+      "t2": "是否带 Apple T2 芯片（新系统下 SecureBootModel 应给 Default）",
+      "recommended": "是否为推荐仿冒目标（false=仅审计对照用，不进推荐候选池）",
+      "board_id": "null 表示交 OpenCore 按 SystemProductName 自动填充"
+    },
+    "note_16x": "16,2 = 2020 13\" 四雷雳3 = Ice Lake 28W/Gen11；16,3 = 2020 13\" 双雷雳3 = CFL-U 15W/Gen9.5（此前版本曾把两者身份与 board-id 弄反，已修正）",
+    "note_no_imac21": "不存在 iMac21,x Intel 机型——iMac21,1/21,2 是 2021 款 24\" M1。Apple 最后一个 Intel iMac 是 iMac20,x（2020 CML-S）",
+    "note_gen12": "11/12 代 Intel 在 Apple 产品线无真身；Gen12 机型选择见 references/gen12-xe.md（实验路线 WhateverXe/NootedGreen），机型按双轴落 Gen11 机型族"
+  },
+  "models": [
+    {"model": "MacBook9,1", "board_id": null, "platform": "Skylake 6代", "tdp": 5, "igpu_gen": "Gen9", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "12\" MacBook 2016 · UHD515 · 5W"},
+    {"model": "MacBookPro13,1", "board_id": null, "platform": "Skylake 6代", "tdp": 15, "igpu_gen": "Gen9", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "13\" MBP 2016 双雷雳3 · UHD515 · 15W"},
+    {"model": "MacBookPro13,2", "board_id": null, "platform": "Skylake 6代", "tdp": 28, "igpu_gen": "Gen9", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "13\" MBP 2016 四雷雳3 Touch Bar · Iris 550 · 28W"},
+    {"model": "MacBookPro13,3", "board_id": null, "platform": "Skylake 6代", "tdp": 45, "igpu_gen": "Gen9", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "15\" MBP 2016 Touch Bar · Iris Pro 45W"},
+    {"model": "MacBook10,1", "board_id": null, "platform": "Kaby Lake 7代", "tdp": 15, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "12\" MacBook 2017 · UHD615"},
+    {"model": "MacBookPro14,1", "board_id": null, "platform": "Kaby Lake 7代", "tdp": 15, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "13\" MBP 2016 四雷雳3 Touch Bar · Iris 15W"},
+    {"model": "MacBookPro14,2", "board_id": null, "platform": "Kaby Lake 7代", "tdp": 28, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "13\" MBP 2017 Touch Bar · Iris Plus 640 · 28W"},
+    {"model": "MacBookPro14,3", "board_id": null, "platform": "Kaby Lake 7代", "tdp": 45, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": false, "note": "15\" MBP 2016/2017 Touch Bar · Radeon Pro 45W"},
+    {"model": "MacBookAir8,1", "board_id": "Mac-7BA5B2DFE22DDD8C", "platform": "Amber Lake-Y", "tdp": 5, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": true, "note": "13\" Air 2018 · UHD617 · 5W 超低压档"},
+    {"model": "MacBookAir8,2", "board_id": null, "platform": "Amber Lake-Y", "tdp": 5, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": true, "recommended": false, "note": "13\" Air 2019 · UHD617 · 带 T2"},
+    {"model": "MacBookPro15,1", "board_id": null, "platform": "Coffee Lake-H 8代", "tdp": 45, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": true, "recommended": false, "note": "15\" MBP 2018 Vega · UHD630+Radeon Pro Vega · 45W"},
+    {"model": "MacBookPro15,2", "board_id": "Mac-827FB448E656EC26", "platform": "CFL 8代", "tdp": 28, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": true, "recommended": true, "note": "13\" MBP 2018/2019 四雷雳3 · CFL-U 28W 档"},
+    {"model": "MacBookPro15,3", "board_id": null, "platform": "Coffee Lake-H 8代", "tdp": 45, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": true, "recommended": false, "note": "15\" MBP 2018 Radeon Pro 560X · 45W"},
+    {"model": "MacBookPro15,4", "board_id": "Mac-53FDB3D8DB8CA971", "platform": "Coffee Lake-U", "tdp": 15, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": false, "recommended": true, "note": "13\" MBP 2019 双雷雳3 · Iris Plus 645 · 15W 档  ★U系低压首选（无 Touch Bar，无 T2）"},
+    {"model": "MacBookPro16,1", "board_id": "Mac-E1008331FDC96864", "platform": "Coffee Lake-H", "tdp": 45, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": true, "t2": true, "recommended": true, "note": "16\" MBP 2019 · CFL-H 45W 标压档 · Tahoe ✅"},
+    {"model": "MacBookPro16,3", "board_id": "Mac-5F9802EFE386AA28", "platform": "CFL 8代", "tdp": 15, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": false, "t2": true, "recommended": true, "note": "13\" MBP 2020 双雷雳3 · CFL-U 15W 档（最高 Sequoia）"},
+    {"model": "MacBookPro16,4", "board_id": "Mac-A61BADE1FDAD7B05", "platform": "Coffee Lake-H", "tdp": 45, "igpu_gen": "Gen9.5", "form_factor": "laptop", "tahoe": true, "t2": true, "recommended": true, "note": "16\" MBP 2019 (5600M) · CFL-H 45W 标压档 · Tahoe ✅"},
+    {"model": "MacBookAir9,1", "board_id": "Mac-0CFF9C7C2B63DF8D", "platform": "Ice Lake", "tdp": 10, "igpu_gen": "Gen11", "form_factor": "laptop", "tahoe": false, "t2": true, "recommended": true, "note": "13\" Air 2020 · Ice Lake 9–10W"},
+    {"model": "MacBookPro16,2", "board_id": "Mac-E7203C0F68AA0004", "platform": "Ice Lake", "tdp": 28, "igpu_gen": "Gen11", "form_factor": "laptop", "tahoe": true, "t2": true, "recommended": true, "note": "13\" MBP 2020 四雷雳3 · Ice Lake 28W · Tahoe ✅"},
+    {"model": "iMac19,1", "board_id": "Mac-AA95B1DDAB278B95", "platform": "Coffee Lake-S", "tdp": 65, "igpu_gen": "Gen9.5", "form_factor": "desktop", "tahoe": false, "t2": false, "recommended": true, "note": "2019 27\" · CFL-S UHD630 · iGPU-only/+dGPU · Tahoe 需换 iMac20,x"},
+    {"model": "iMac19,2", "board_id": null, "platform": "Coffee Lake-S", "tdp": 65, "igpu_gen": "Gen9.5", "form_factor": "desktop", "tahoe": false, "t2": false, "recommended": false, "note": "2019 21.5\" · CFL-S UHD630"},
+    {"model": "iMac20,1", "board_id": "Mac-CAD8A5C1E5E6AADC", "platform": "Comet Lake-S", "tdp": 65, "igpu_gen": "Gen9.5", "form_factor": "desktop", "tahoe": true, "t2": true, "recommended": true, "note": "2020 27\" · CML-S UHD630 · iGPU-only 桌面首选 · Tahoe ✅"},
+    {"model": "iMac20,2", "board_id": null, "platform": "Comet Lake-S", "tdp": 65, "igpu_gen": "Gen9.5", "form_factor": "desktop", "tahoe": true, "t2": true, "recommended": true, "note": "2020 27\" · CML-S UHD630 + dGPU · Tahoe ✅"},
+    {"model": "Macmini8,1", "board_id": null, "platform": "Coffee Lake", "tdp": 65, "igpu_gen": "Gen9.5", "form_factor": "desktop", "tahoe": false, "t2": false, "recommended": true, "note": "2018 小主机 · CFL UHD630 · iGPU-only · 最高 Sequoia"},
+    {"model": "MacPro7,1", "board_id": "Mac-27AD2F918AEAC861", "platform": "Xeon W (无 iGPU)", "tdp": 65, "igpu_gen": "Gen9.5", "form_factor": "desktop", "tahoe": true, "t2": true, "recommended": true, "note": "2019 工作站 · 须配 AMD 独显(Navi/Polaris) · Tahoe ✅"},
+    {"model": "iMacPro1,1", "board_id": null, "platform": "Xeon W (无 iGPU)", "tdp": 65, "igpu_gen": null, "form_factor": "desktop", "tahoe": false, "t2": true, "recommended": false, "note": "2017 工作站 · Xeon W 无核显 · 须配 Vega 独显"}
+  ]
+}
